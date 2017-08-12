@@ -1,17 +1,43 @@
-% This code is an example of proteomics in cancer biology
+%% Example of proteomics in cancer biology with Matlab
 
-% loading the pre-processed dataset
+%% Summary 
+
+% This report represents a represents an example Matlab proteomic data
+% analysis. The data set analyze in this report can be found <https://home.ccr.cancer.gov/ncifdaproteomics/ppatterns.as here>
+% which is the FDA-NCI Clinical Proteomics Program Databank. The samples
+% downloaded from the FDA-NIC Proteomics Programa Databank corresponds to
+% SELDI Mass-Spec profiles of overian cancer samples: *Cancer Group* vs  *Normal Group*.
+% The study related to this dataset was published, in 2004, the Endocrine
+% Related Cancer journal. 
+
+%% Loading pre-processed dataset
+% After preprocessing the dataset (find the code
+% <https://github.com/friveramariani/Proteomic-Examples/blob/master/preprocessing_mass_spec.m here>,
+% the dataset was loaded. 
+
 load OvarianCancerQAQCdataset
 whos
 
-% initializing variables to be used downstream in the data analysis
-% workflow
+%% Initializing variables 
+% A set of vector variables, which will be used in the downstream workflow,
+% are initialized. 
 
-N = numel(grp);                         % vecNumber of samples
-Cidx = strcmp('Cancer',grp);            % Logical index vector for Cancer samples
-Nidx = strcmp('Normal',grp);            % Logical index vector for Normal samples
-Cvec = find(Cidx);                      % Index vector for Cancer samples
-Nvec = find(Nidx);                      % Index vector for Normal samples
-xAxisLabel = 'Mass/Charge (M/Z)';       % x label for plots
-yAxisLabel = 'Ion Intensity';           % y label for plots
+N = numel(grp);                         % vector of number of samples
+Cidx = strcmp('Cancer',grp);            % logical index vector for Cancer samples
+Nidx = strcmp('Normal',grp);            % logical index vector for Normal samples
+Cvec = find(Cidx);                      % index vector for Cancer samples
+Nvec = find(Nidx);                      % index vector for Normal samples
+xAxisLabel = 'Mass/Charge (M/Z)';       % x-axis label for plots
+yAxisLabel = 'Ion Intensity';           % y-axis label for plots
+
+%% Visualizing a set of the samples
+% The SELDI10 samples
+
+figure; hold on;
+hC = plot(MZ,Y(:,Cvec(1:10)),'b');
+hN = plot(MZ,Y(:,Nvec(1:10)),'g');
+xlabel(xAxisLabel); ylabel(yAxisLabel);
+axis([2000 12000 -5 60])
+legend([hN(1),hC(1)],{'Control Group','Ovarian Cancer'})
+title('Multiple Sample Spectrograms')
 
