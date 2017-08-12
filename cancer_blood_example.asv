@@ -1,0 +1,17 @@
+% This code is an example of proteomics in cancer biology
+
+% loading the pre-processed dataset
+load OvarianCancerQAQCdataset
+whos
+
+% initializing variables to be used downstream in the data analysis
+% workflow
+
+N = numel(grp);                         % vecNumber of samples
+Cidx = strcmp('Cancer',grp);            % Logical index vector for Cancer samples
+Nidx = strcmp('Normal',grp);            % Logical index vector for Normal samples
+Cvec = find(Cidx);                      % Index vector for Cancer samples
+Nvec = find(Nidx);                      % Index vector for Normal samples
+xAxisLabel = 'Mass/Charge (M/Z)';       % x label for plots
+yAxisLabel = 'Ion Intensity';           % y label for plots
+
