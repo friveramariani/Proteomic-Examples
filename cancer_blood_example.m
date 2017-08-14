@@ -1,16 +1,20 @@
-%% Example of proteomics in cancer biology with Matlab
+%% Proteomics data analysis in cancer biology with Matlab
 
 %% Summary 
-% This report represents a represents an example Matlab proteomic data
-% analysis. The data set analyze in this report can be found <https://home.ccr.cancer.gov/ncifdaproteomics/ppatterns.as here>
+% This report represents an example Matlab proteomic data
+% analysis. The dataset analyzed in this report can be found
+% <https://home.ccr.cancer.gov/ncifdaproteomics/ppatterns.as here>,
 % which is the FDA-NCI Clinical Proteomics Program Databank. The samples
-% downloaded from the FDA-NIC Proteomics Programa Databank corresponds to
-% SELDI Mass-Spec profiles of overian cancer samples: *Cancer Group* vs  *Normal Group*.
-% The study related to this dataset was published, in 2004, the Endocrine
-% Related Cancer journal. 
+% downloaded from the FDA-NIC Proteomics Programa Databank correspond to
+% SELDI Mass-Spec profiles of ovarian cancer samples: *Cancer Group* vs  *Normal Group*.
+% The study related to this dataset was published, in 2004, in the Endocrine
+% Related Cancer journal. *Briefly*, after *_transforming_* the Mass-Spec data,
+% some _ *variables were initialized* _ to facilitate the downstream
+% workflow, * _visualization of Mass-Spec profiles_ * performed, and lastly the
+% * _features ranked_ * with t-test statistic. 
 
 %% Loading pre-processed dataset
-% After preprocessing the dataset (find the code
+% After preprocessing the dataset into .mat format (find the code
 % <https://github.com/friveramariani/Proteomic-Examples/blob/master/preprocessing_mass_spec.m here>,
 % the dataset was loaded. 
 
@@ -22,15 +26,16 @@ whos
 % are initialized. 
 
 N = numel(grp);                         % vector of number of samples
-Cidx = strcmp('Cancer',grp);            % logical index vector for Cancer samples
-Nidx = strcmp('Normal',grp);            % logical index vector for Normal samples
+Cidx = strcmp('Cancer',grp);            % logical index vector for Cancer samples' group
+Nidx = strcmp('Normal',grp);            % logical index vector for Normal samples' group
 Cvec = find(Cidx);                      % index vector for Cancer samples
 Nvec = find(Nidx);                      % index vector for Normal samples
 xAxisLabel = 'Mass/Charge (M/Z)';       % x-axis label for plots
 yAxisLabel = 'Ion Intensity';           % y-axis label for plots
 
 %% Visualizing a set of the samples
-% The spectogram of 10 samples
+% Fine below the spectogram of 10 samples. Figure 1 corresponds to original
+% spectogram, while figure 2 to a zoomed spectrogram. 
 
 figure; hold on;
 hC = plot(MZ,Y(:,Cvec(1:10)),'b');
@@ -49,13 +54,14 @@ legend([hN(1),hC(1)],{'Control Group','Ovarian Cancer'})
 title('Zoomed Spectrograms of 10 Samples')
 
 %% Ranking features
+% Significant masses were identified using a two-way t-statistic. After
+% ranking the features, a set of variables were initialized to generate the
+% plot for the spectogram with two-way t-statistic. 
 
-% Significant masses using a two-way t-statistic
 [feat,stat] = rankfeatures(Y,grp,'CRITERION','ttest','NUMBER',100);
 sig_Masses = MZ(feat);
 sig_Masses(1:10)' %display the first 10 significant masses
 
-% Set variables for two-way t-statistic plotting
 mean_N = mean(Y(:,Nidx),2);  % group average for control samples
 max_N = max(Y(:,Nidx),[],2); % top envelopes of the control samples
 min_N = min(Y(:,Nidx),[],2); % bottom envelopes of the control samples
@@ -63,7 +69,6 @@ mean_C = mean(Y(:,Cidx),2);  % group average for cancer samples
 max_C = max(Y(:,Cidx),[],2); % top envelopes of the control samples
 min_C = min(Y(:,Cidx),[],2); % bottom envelopes of the control samples
 
-% Plotting the two-way t-statistic
 figure;
 
 yyaxis left
@@ -80,3 +85,18 @@ ylim([-1,22])
 ylabel('Test Statistic');
 
 legend({'Control Group Avg.','Cancer Group Avg.', 'Test Statistics'})
+
+%% Other possible approaches
+% Although not performed in this example proteomic data analysis, other
+% approaches that could have been added include: 
+% 
+% # identify the amino acid sequences of the statistically significant features
+% # and identify the proteins by matching amino acid sequences to databases.  
+% 
+% In future *"omics" data analysis in Matlab, as well as in R and Python 
+% more thorough and detailed workflow will be shared. 
+%
+% Author: <http://friveram.com/ Felix E. Rivera-Mariani, PhD>
+
+
+
