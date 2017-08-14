@@ -1,8 +1,9 @@
 %% Proteomics data analysis in cancer biology with Matlab
 %% Author Information
-% <http://friveram.com/ Felix E. Rivera-Mariani, PhD>
-% date: 08/14/2017
-% Github repository: <https://github.com/friveramariani/Proteomic-Examples>
+%  
+% * <http://friveram.com/ Felix E. Rivera-Mariani, PhD>
+% * *Date*: 08/14/2017
+% * *Github repository*: <https://github.com/friveramariani/Proteomic-Examples>
 
 %% Summary 
 % This report represents an example Matlab proteomic data
