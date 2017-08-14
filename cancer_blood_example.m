@@ -8,10 +8,10 @@
 % downloaded from the FDA-NIC Proteomics Programa Databank correspond to
 % SELDI Mass-Spec profiles of ovarian cancer samples: *Cancer Group* vs  *Normal Group*.
 % The study related to this dataset was published, in 2004, in the Endocrine
-% Related Cancer journal. *Briefly*, after *_transforming_* the Mass-Spec data,
-% some _ *variables were initialized* _ to facilitate the downstream
-% workflow, * _visualization of Mass-Spec profiles_ * performed, and lastly the
-% * _features ranked_ * with t-test statistic. 
+% Related Cancer journal. *Briefly*, after _transforming_ the Mass-Spec data,
+% some _variables were initialized_ to facilitate the downstream
+% workflow, _visualization of Mass-Spec profiles_ performed, and lastly the
+% _features ranked_ with t-test statistic. 
 
 %% Loading pre-processed dataset
 % After preprocessing the dataset into .mat format (find the code
@@ -43,7 +43,7 @@ hN = plot(MZ,Y(:,Nvec(1:10)),'g');
 xlabel(xAxisLabel); ylabel(yAxisLabel);
 axis([2000 12000 -5 60])
 legend([hN(1),hC(1)],{'Control Group','Ovarian Cancer'})
-title('Spectrograms of 10 Samples')
+title('Figure 1: Spectrograms of 10 Samples')
 
 figure; hold on;
 hC = plot(MZ,Y(:,Cvec(1:10)),'b');
@@ -51,12 +51,12 @@ hN = plot(MZ,Y(:,Nvec(1:10)),'g');
 xlabel(xAxisLabel); ylabel(yAxisLabel);
 axis([8000 9000 -1 7])
 legend([hN(1),hC(1)],{'Control Group','Ovarian Cancer'})
-title('Zoomed Spectrograms of 10 Samples')
+title('Figure 2: Zoomed Spectrograms of 10 Samples')
 
 %% Ranking features
 % Significant masses were identified using a two-way t-statistic. After
 % ranking the features, a set of variables were initialized to generate the
-% plot for the spectogram with two-way t-statistic. 
+% plot (figure 3) for the spectogram with two-way t-statistic. 
 
 [feat,stat] = rankfeatures(Y,grp,'CRITERION','ttest','NUMBER',100);
 sig_Masses = MZ(feat);
@@ -75,7 +75,7 @@ yyaxis left
 plot(MZ, [mean_N mean_C]);
 ylim([-1,20])
 xlim([8000,9000])
-title('Significant M/Z Values')
+title('Figure 3: Significant M/Z Values')
 xlabel(xAxisLabel);
 ylabel(yAxisLabel);
 
