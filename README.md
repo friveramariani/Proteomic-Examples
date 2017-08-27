@@ -8,4 +8,4 @@ The datasets evaluated with the codes in this repo are publicly available, and h
 
 Find information about Felix E. Rivera-Mariani, PhD [here](http://friveram.com/)
 
-Find the PDF output of this example [here](https://github.com/friveramariani/Proteomic-Examples/blob/master/html/cancer_blood_example.pdf)
+Find the PDF output of one the example [here](https://github.com/friveramariani/Proteomic-Examples/blob/master/html/cancer_blood_example.pdf)
