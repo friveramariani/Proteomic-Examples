@@ -6,6 +6,6 @@ To follow along these lines and contribute approaches to address the reproducbil
 
 The datasets evaluated with the codes in this repo are publicly available, and have addressed questions in chronic diseases such as [cancer](https://medlineplus.gov/cancer.html), [cardiovascular diseases](http://www.who.int/mediacentre/factsheets/fs317/en/), [respiratory diseases](http://www.who.int/respiratory/en/), among others. 
 
-Find information about the author, Felix E. Rivera-Mariani, PhD [here](http://friveram.com/)
+Find information about Felix E. Rivera-Mariani, PhD [here](http://friveram.com/)
 
 Find the PDF output of this example [here](https://github.com/friveramariani/Proteomic-Examples/blob/master/html/cancer_blood_example.pdf)
