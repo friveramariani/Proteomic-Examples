@@ -1,6 +1,7 @@
 %% Proteomics data analysis in cancer biology with Matlab
-%% Author Information
+%% Author Information: Felix E. Rivera-Mariani, PhD
 %  
+% * Assistant Professor, College of Biomedical Sciences, Larkin University
 % * <http://friveram.com/ Felix E. Rivera-Mariani, PhD>
 % * *Date*: 08/14/2017
 % * *Github repository*: <https://github.com/friveramariani/Proteomic-Examples>
