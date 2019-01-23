@@ -1,4 +1,4 @@
-## Exampes of Proteomic Analysis
+## Examples of Proteomic Analysis
 
 Reproducible data analysis in biological sciences, including when [**"omics"**](https://en.wikipedia.org/wiki/Omics) technologies are implemented, is fundamental for accepting new knowledge within the scientific community. Some surveys among the scientific community, such as the one found [here](http://www.nature.com/news/1-500-scientists-lift-the-lid-on-reproducibility-1.19970) (published in Nature) address concers with regards to reproducibility in science. Now in the big data era of biological sciences, and non science fields (e.g. economics, business, etc.), providing evidence of reproducibility in data analysis is essential. 
 
